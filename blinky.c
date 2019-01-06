@@ -257,7 +257,6 @@ int main(int argc, char *argv[])
         // Exit! No need to continue if not success
         return(0);
 
-    struct Timestamp timestamp;
     int fib1 = 0;
     int fib2 = 1;
     int fib3 = 1;
