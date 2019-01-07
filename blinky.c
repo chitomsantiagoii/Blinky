@@ -23,7 +23,7 @@
 #define PWR_LED_TRIGGER_OFF     "off"
 
 #define LED_OFF                 "0"
-#define LED_ON                  "1"s
+#define LED_ON                  "1"
 
 int _ENABLE_LOGGING                 = 0;
 int _USE_ACT_LED_FOR_SPACING_BLINK  = 0;
