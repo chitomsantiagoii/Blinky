@@ -23,7 +23,7 @@
 #define PWR_LED_TRIGGER_OFF     "off"
 
 #define LED_OFF                 "0"
-#define LED_ON                  "1"
+#define LED_ON                  "1"s
 
 int _ENABLE_LOGGING                 = 0;
 int _USE_ACT_LED_FOR_SPACING_BLINK  = 0;
@@ -154,6 +154,12 @@ static int LED_Set()
 
     if (ret == 0) ret = LED_SetValue(ACT_LED_TRIGGER, ACT_LED_TRIGGER_CPU0);
     if (ret == 0) ret = LED_SetValue(PWR_LED_TRIGGER, PWR_LED_TRIGGER_GPIO);
+    if (ret == 0)
+    {
+        LED_ACT_OFF();
+        LED_PWR_OFF();
+    }
+
     return(ret);
 }
 
@@ -252,14 +258,14 @@ int main(int argc, char *argv[])
     _MULTIPLIER                     = (argc > 4) ? atoi(argv[4]) : _MULTIPLIER;
     _NUMBER                         = (argc > 5) ? atoi(argv[5]) : _NUMBER;
 
+    int fib1 = 0;
+    int fib2 = 1;
+    int fib3 = 1;
+
     // Set LED ports
     if (LED_Set() != 0)
         // Exit! No need to continue if not success
         return(0);
-
-    int fib1 = 0;
-    int fib2 = 1;
-    int fib3 = 1;
 
     // Start Sequence
     spblink_5();
